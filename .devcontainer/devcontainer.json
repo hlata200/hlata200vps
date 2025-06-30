@@ -1,0 +1,10 @@
+{
+  "name": "VNC Desktop with Tailscale",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  // We add these settings to give Tailscale the permissions it needs to work
+  "runArgs": ["--cap-add=NET_ADMIN", "--device=/dev/net/tun"],
+  // This command will run our script automatically when the codespace starts
+  "postCreateCommand": "bash ./.devcontainer/start.sh"
+}
